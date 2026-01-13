@@ -1,0 +1,440 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Kaiti SC", "STKaiti", "KaiTi", serif; /* 优先使用楷体，更有书法韵味 */
+    background-color: #f4f1ea; /* 米白色，模拟宣纸颜色 */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 导航栏样式 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #2c2c2c; /* 墨黑色 */
+    color: #fff;
+    position: sticky; /* 吸顶效果 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #a83f3f; /* 印章红 */
+    padding: 5px 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ddd;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #fff;
+    border-bottom: 2px solid #a83f3f;
+}
+
+/* 首页 Hero Section */
+.hero {
+    height: 80vh; /* 占据屏幕80%高度 */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bg.png'); /* 记得放一张背景图 bg.jpg */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #a83f3f;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #8a3232;
+}
+
+/* 分页 Header */
+.page-header {
+    background-color: #ddd;
+    padding: 60px 20px;
+    text-align: center;
+    background-image: url('images/paper-texture.jpg'); /* 可选：宣纸纹理 */
+}
+
+/* 卡片布局 (用于画廊) */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 30px;
+    padding: 50px 5%;
+}
+
+.card {
+    background: white;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* 动画效果 */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* 鼠标悬停上浮 */
+}
+
+.img-wrapper {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保证图片填满且不变形 */
+    transition: transform 0.5s;
+}
+
+.card:hover img {
+    transform: scale(1.1); /* 图片轻微放大 */
+}
+
+.card-text {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-text h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c2c2c;
+    color: #777;
+    margin-top: auto;
+}
+.layout-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* 左侧200px，右侧自适应 */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* 2. 侧边栏 (Sidebar) */
+.sidebar {
+    position: sticky; /* 关键：让它吸附在窗口 */
+    top: 100px;       /* 距离顶部 100px 时停住 */
+    height: fit-content;
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+}
+
+.sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #a83f3f;
+    border-bottom: 2px solid #a83f3f;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: block;
+    padding: 5px 0;
+}
+
+.sidebar a:hover {
+    color: #a83f3f;
+    transform: translateX(5px); /* 鼠标移上去轻微右移 */
+}
+
+/* 3. 时间轴主体 (Timeline) */
+.timeline-content {
+    border-left: 2px solid #e0e0e0; /* 左侧的一条灰线 */
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px; /* 每个朝代之间的间距 */
+}
+
+/* 时间轴上的小圆点 */
+.timeline-marker {
+    position: absolute;
+    left: -39px; /* 调整位置，让它正好在灰线上 */
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 3px solid #a83f3f; /* 红圈 */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-body h2 {
+    font-size: 1.5rem;
+    margin: 5px 0 15px 0;
+    color: #333;
+}
+
+.era-tag {
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    color: #666;
+    border-radius: 4px;
+    font-family: Arial, sans-serif; /* 年份用无衬线体更清晰 */
+}
+
+.timeline-body p {
+    font-size: 1rem;
+    color: #444;
+    text-align: justify; /* 两端对齐 */
+    margin-bottom: 15px;
+}
+
+/* 历史插图样式 */
+.timeline-img {
+    margin-top: 15px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.timeline-img img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.caption {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* 历史页的 Header 背景图可以不同 */
+.history-header {
+    background-image: url('images/bg-history.jpg'); 
+    background-size: cover;
+    color: #532626; /* 文字改白色 */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 加阴影防背景太亮看不清 */
+}
+
+/* 手机端适配：屏幕变小时，把侧边栏隐藏或放到上面 */
+@media (max-width: 768px) {
+    .layout-grid {
+        grid-template-columns: 1fr; /* 变成单列 */
+    }
+    .sidebar {
+        display: none; /* 手机上太窄，暂时隐藏侧边栏 */
+        /* 或者改成 position: static; border: none; 让它显示在顶部 */
+    }
+    .timeline-content {
+        border-left: none; /* 去掉线 */
+        padding-left: 0;
+    }
+    .timeline-marker {
+        display: none; /* 去掉点 */
+    }
+}
+/* ========================
+   文房四宝 3D 翻转卡片
+   ======================== */
+.flip-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px; /* 开启 3D 视角 */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* 鼠标悬停时翻转 */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+/* 正面样式 */
+.flip-card-front {
+    background-color: #333; /* 墨色背景 */
+    color: #fff;
+}
+
+.flip-card-front h3 {
+    font-size: 4rem; /* 超大字 */
+    border: 2px solid #a83f3f; /* 红框装饰 */
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    line-height: 60px; /* 调整垂直居中 */
+    border-radius: 50%; /* 圆形框 */
+}
+
+/* 背面样式 */
+.flip-card-back {
+    background-color: #a83f3f; /* 印章红背景 */
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.flip-card-back p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-family: "Kaiti SC", serif;
+}
+/* ========================
+   图片灯箱 (Lightbox)
+   ======================== */
+.lightbox {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 2000; /* 保证在最上层 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* 黑色半透明背景 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border: 5px solid #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+#lightbox-caption {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #a83f3f;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.timeline-img {
+    margin-top: 25px;
+    background-color: #fff; /* 白色背景 */
+    padding: 15px;          /* 内边距，形成像相框一样的留白 */
+    border: 1px solid #ddd; /* 细边框 */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1); /* 阴影，增加立体感 */
+    
+    transition: transform 0.3s;
+}
+
+.timeline-img:hover {
+    transform: rotate(0deg) scale(1.02); /* 鼠标放上去变正并轻微放大 */
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.2);
+}

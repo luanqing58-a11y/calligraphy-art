@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名作赏析 - 墨韵中华</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<>
+
+    <nav class="navbar">
+        <div class="logo">墨韵中华</div>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="history.html">书法源流</a></li>
+            <li><a href="gallery.html" class="active">名作赏析</a></li>
+            <li><a href="index.html#about">关于我们</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>历代名帖赏析</h1>
+        <p>笔走龙蛇，气韵生动</p>
+    </header>
+
+    <main class="gallery-container">
+        
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/W.jpg" alt="王羲之 妹至帖">
+            </div>
+            <div class="card-text">
+                <h3>王羲之《妹至帖》</h3>
+                <p class="desc">行草书，笔法精妙，情感流露自然。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/R.jpg" alt="颜真卿 湖州帖">
+            </div>
+            <div class="card-text">
+                <h3>颜真卿《湖州帖》</h3>
+                <p class="desc">行书，用笔苍劲，结体宽博。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/H.jpg" alt="黄道周 洗耳文">
+            </div>
+            <div class="card-text">
+                <h3>黄道周《洗耳文》</h3>
+                <p class="desc">行楷，笔势峭厉，风格独特。</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 墨韵中华</p>
+    </footer>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <script>
+        // 获取所有卡片里的图片
+        const images = document.querySelectorAll('.card img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+
+        // 给每个图片加点击事件
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex'; // 显示遮罩
+                lightboxImg.src = img.src;       // 把大图地址换成当前点击的图片
+                caption.innerText = img.alt;     // 显示图片描述
+            });
+        });
+
+        // 关闭遮罩
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
